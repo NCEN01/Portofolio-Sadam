@@ -141,7 +141,7 @@
                                     <div class="frame-deco frame-deco-bottom"></div>
                                     <!-- Date/Time Stamp -->
                                     <div class="photo-timestamp">
-                                        <span class="timestamp-text">PORTFOLIO 2024</span>
+                                        <span class="timestamp-text">PORTFOLIO 2026</span>
                                     </div>
                                 </div>
                                 <div class="photo-tunnel-effect"></div>
@@ -1457,7 +1457,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="cert-icon">
                     <i class='bx bx-award'></i>
                 </div>
-                <div class="cert-badge">LSP UNSERA</div>
+                <div class="cert-badge">LSP UNSERA & BNSP</div>
             </div>
             <div class="cert-content">
                 <h3 class="cert-title">Sertifikasi Kompetensi</h3>
@@ -1465,7 +1465,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="cert-description">Sertifikasi kompetensi dari LSP Universitas Serang Raya untuk bidang Junior Web Programmer yang mencakup pemahaman HTML, CSS, JavaScript, dan PHP.</p>
             </div>
             <div class="cert-footer">
-                <span class="cert-year"><i class='bx bx-calendar'></i> 2024</span>
+                <span class="cert-year"><i class='bx bx-calendar'></i> 2026</span>
                 <span class="cert-status verified"><i class='bx bx-check-circle'></i> Verified</span>
             </div>
             <div class="cert-shine"></div>
@@ -1488,9 +1488,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="cert-badge">Coming Soon</div>
             </div>
             <div class="cert-content">
-                <h3 class="cert-title">Sertifikasi Kedua</h3>
-                <h4 class="cert-subtitle">-</h4>
-                <p class="cert-description">Sertifikasi tambahan yang akan ditambahkan setelah selesai.</p>
+                <h3 class="cert-title">Sertifikat Internship</h3>
+                <h4 class="cert-subtitle">Internship</h4>
+                <p class="cert-description">Sertifikat INtership selama 3 bulan di Krakatau International Port.</p>
             </div>
             <div class="cert-footer">
                 <span class="cert-year"><i class='bx bx-calendar'></i> -</span>

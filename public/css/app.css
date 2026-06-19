@@ -46,6 +46,34 @@ body.loading {
     overflow: hidden;
 }
 
+/* Page entrance initial state - hidden until welcome screen exits */
+body.loading .navbar {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+body.loading main {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+body.loading .footer {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+body.loading .bg-grid {
+    opacity: 0;
+}
+
+body.loading .bg-glow {
+    opacity: 0;
+}
+
+body.loading #particles {
+    opacity: 0;
+}
+
 /* ===== Custom Cursor ===== */
 .cursor {
     position: fixed;
@@ -76,7 +104,400 @@ body.loading {
     border-color: var(--accent);
 }
 
-/* ===== Loader ===== */
+/* ===== WELCOME SCREEN ===== */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    background: #08080f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    overflow: hidden;
+    transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Welcome Background Grid */
+.welcome-bg-grid {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(255, 107, 53, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 53, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    animation: welcomeGridPulse 3s ease-in-out infinite;
+}
+
+@keyframes welcomeGridPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Welcome Particles Canvas */
+#welcomeParticles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Welcome Corners */
+.welcome-corners {
+    position: absolute;
+    inset: 30px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.welcome-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--primary);
+    opacity: 0;
+    animation: cornerFadeIn 0.6s ease forwards;
+}
+
+.welcome-corner.corner-tl { top: 0; left: 0; border-right: none; border-bottom: none; animation-delay: 0.2s; }
+.welcome-corner.corner-tr { top: 0; right: 0; border-left: none; border-bottom: none; animation-delay: 0.4s; }
+.welcome-corner.corner-bl { bottom: 0; left: 0; border-right: none; border-top: none; animation-delay: 0.6s; }
+.welcome-corner.corner-br { bottom: 0; right: 0; border-left: none; border-top: none; animation-delay: 0.8s; }
+
+@keyframes cornerFadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 0.6; transform: scale(1); }
+}
+
+/* Welcome Decorative Rings */
+.welcome-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.welcome-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    animation: welcomeRingPulse 4s ease-in-out infinite;
+}
+
+.ring-a { width: 400px; height: 400px; animation-delay: 0s; }
+.ring-b { width: 500px; height: 500px; border-style: dashed; animation-delay: 0.8s; border-color: rgba(255, 68, 68, 0.08); }
+.ring-c { width: 600px; height: 600px; animation-delay: 1.6s; border-color: rgba(255, 140, 66, 0.05); }
+
+@keyframes welcomeRingPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
+}
+
+/* Welcome Scanlines */
+.welcome-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Welcome Main Content */
+.welcome-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    animation: contentFadeIn 0.8s ease forwards 0.3s;
+    opacity: 0;
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glitch Name */
+.welcome-glitch-wrapper {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.welcome-name {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 40%, var(--secondary) 70%, var(--primary) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: nameGradientShift 3s ease-in-out infinite, namePulse 2s ease-in-out infinite, nameSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    position: relative;
+}
+
+/* Running glow lines for name */
+.welcome-name::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), var(--primary), transparent);
+    background-size: 200% 100%;
+    animation: nameLineRun 2s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes nameLineRun {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes nameGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes namePulse {
+    0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.3)); }
+    50% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.6)); }
+}
+
+@keyframes nameSlideIn {
+    from { opacity: 0; transform: scale(0.3); filter: blur(10px); }
+    to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+/* Glitch Clones */
+.welcome-glitch-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.welcome-glitch-1 {
+    color: rgba(255, 0, 0, 0.6);
+    animation: welcomeGlitch1 3s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.welcome-glitch-2 {
+    color: rgba(0, 200, 255, 0.6);
+    animation: welcomeGlitch2 2.5s infinite linear alternate-reverse;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes welcomeGlitch1 {
+    0% { transform: translate(0); opacity: 0; }
+    5% { opacity: 0.4; transform: translate(-3px, 2px); }
+    10% { opacity: 0; transform: translate(0); }
+    100% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes welcomeGlitch2 {
+    0% { transform: translate(0); opacity: 0; }
+    7% { opacity: 0.3; transform: translate(3px, -2px); }
+    12% { opacity: 0; transform: translate(0); }
+    100% { opacity: 0; transform: translate(0); }
+}
+
+/* Welcome Role */
+.welcome-role-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcome-bracket {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+.welcome-role {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 4px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.welcome-role::after {
+    content: '_';
+    color: var(--primary);
+    animation: blink 0.6s step-end infinite;
+}
+
+/* Terminal */
+.welcome-terminal {
+    width: 420px;
+    background: rgba(10, 10, 20, 0.95);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 53, 0.1);
+    animation: terminalFloat 3s ease-in-out infinite;
+}
+
+@keyframes terminalFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.15);
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.terminal-dot.dot-r { background: #ff5f57; }
+.terminal-dot.dot-y { background: #febc2e; }
+.terminal-dot.dot-g { background: #28c840; }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+}
+
+.terminal-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 90px;
+}
+
+.terminal-line {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-prompt {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    background: var(--primary);
+    width: 8px;
+    height: 14px;
+    animation: terminalCursorBlink 0.8s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes terminalCursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Welcome Exit Animation */
+.welcome-overlay.exiting {
+    animation: overlayZoomOut 0.7s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+}
+
+@keyframes overlayZoomOut {
+    0% { 
+        opacity: 1; 
+        transform: scale(1); 
+        filter: brightness(1) blur(0px);
+    }
+    50% {
+        opacity: 0.7;
+        filter: brightness(1.5) blur(2px);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(1.15); 
+        filter: brightness(2) blur(8px);
+        visibility: hidden;
+    }
+}
+
+.welcome-overlay.exiting .welcome-content {
+    animation: contentExit 0.6s ease forwards;
+}
+
+@keyframes contentExit {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-50px) scale(0.85); }
+}
+
+.welcome-overlay.exiting .welcome-rings {
+    animation: ringsExit 0.6s ease forwards;
+}
+
+@keyframes ringsExit {
+    to { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+.welcome-overlay.exiting .welcome-corners {
+    animation: cornersExit 0.5s ease forwards;
+}
+
+@keyframes cornersExit {
+    to { opacity: 0; transform: scale(0.8); }
+}
+
+.welcome-overlay.exiting .welcome-scanlines {
+    animation: scanlinesExit 0.4s ease forwards;
+}
+
+@keyframes scanlinesExit {
+    to { opacity: 0; }
+}
+
+/* ===== OLD LOADER (kept for compatibility) ===== */
 .loader {
     position: fixed;
     inset: 0;

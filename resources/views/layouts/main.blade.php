@@ -15,17 +15,65 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-hex">
-                <div class="hex-spin"></div>
-            </div>
-            <div class="loader-bar">
-                <div class="loader-progress" id="loaderProgress"></div>
-            </div>
-            <span class="loader-text" id="loaderText">Loading...</span>
+    <!-- ===== WELCOME SCREEN ===== -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <!-- Background Particles Canvas -->
+        <canvas id="welcomeParticles"></canvas>
+        
+        <!-- Background Grid Lines -->
+        <div class="welcome-bg-grid"></div>
+        
+        <!-- Corner Accents -->
+        <div class="welcome-corners">
+            <div class="welcome-corner corner-tl"></div>
+            <div class="welcome-corner corner-tr"></div>
+            <div class="welcome-corner corner-bl"></div>
+            <div class="welcome-corner corner-br"></div>
         </div>
+
+        <!-- Main Content -->
+        <div class="welcome-content" id="welcomeContent">
+            <!-- Glitch Name -->
+            <div class="welcome-glitch-wrapper">
+                <h1 class="welcome-name" data-text="SADAM ALAMSYAH">SADAM ALAMSYAH</h1>
+                <div class="welcome-glitch-clone welcome-glitch-1" aria-hidden="true">SADAM ALAMSYAH</div>
+                <div class="welcome-glitch-clone welcome-glitch-2" aria-hidden="true">SADAM ALAMSYAH</div>
+            </div>
+            
+            <!-- Role Line -->
+            <div class="welcome-role-wrapper">
+                <span class="welcome-bracket"><</span>
+                <span class="welcome-role" id="welcomeRole"></span>
+                <span class="welcome-bracket">/></span>
+            </div>
+            
+            <!-- Terminal Loader -->
+            <div class="welcome-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot dot-r"></span>
+                    <span class="terminal-dot dot-y"></span>
+                    <span class="terminal-dot dot-g"></span>
+                    <span class="terminal-title">portfolio.exe</span>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line"><span class="terminal-prompt">></span> <span>Initializing system...</span></div>
+                    <div class="terminal-line" id="terminalLine2"><span class="terminal-prompt">></span> <span id="terminalMsg">Loading assets...</span></div>
+                    <div class="terminal-line terminal-cursor-line" id="terminalCursorLine">
+                        <span class="terminal-prompt">></span> <span class="terminal-cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Rings -->
+        <div class="welcome-rings">
+            <div class="welcome-ring ring-a"></div>
+            <div class="welcome-ring ring-b"></div>
+            <div class="welcome-ring ring-c"></div>
+        </div>
+
+        <!-- Scan Line Overlay -->
+        <div class="welcome-scanlines"></div>
     </div>
 
     <!-- Custom Cursor (Desktop Only) -->

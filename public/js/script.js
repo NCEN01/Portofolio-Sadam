@@ -1,7 +1,7 @@
 // ===== Portfolio JavaScript - Scroll Based =====
 
 document.addEventListener('DOMContentLoaded', () => {
-    initLoader();
+    initWelcome();
     initCustomCursor();
     initParticles();
     initNavigation();
@@ -55,6 +55,231 @@ function initLoader() {
             loaderText.textContent = messages[Math.min(msgIndex, messages.length - 1)];
         }
     }, 200);
+}
+
+// ===== Welcome Screen Animation =====
+function initWelcome() {
+    const overlay = document.getElementById('welcomeOverlay');
+    if (!overlay) return;
+
+    document.body.classList.add('loading');
+
+    const roleEl = document.getElementById('welcomeRole');
+    const terminalMsg = document.getElementById('terminalMsg');
+    const terminalBody = document.getElementById('terminalBody');
+
+    // === Welcome Particles Canvas ===
+    const canvas = document.getElementById('welcomeParticles');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let wParticles = [];
+
+        function resizeWelcomeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeWelcomeCanvas();
+        window.addEventListener('resize', resizeWelcomeCanvas);
+
+        class WelcomeParticle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.6 + 0.2;
+                this.color = Math.random() > 0.5 ? '255, 107, 53' : '255, 68, 68';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        const particleCount = Math.min(Math.floor(canvas.width * canvas.height / 12000), 100);
+        for (let i = 0; i < particleCount; i++) {
+            wParticles.push(new WelcomeParticle());
+        }
+
+        function animateWelcomeParticles() {
+            if (!overlay.classList.contains('hidden')) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                wParticles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                // Draw connections
+                for (let i = 0; i < wParticles.length; i++) {
+                    for (let j = i + 1; j < wParticles.length; j++) {
+                        const dx = wParticles[i].x - wParticles[j].x;
+                        const dy = wParticles[i].y - wParticles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 80) {
+                            ctx.beginPath();
+                            ctx.moveTo(wParticles[i].x, wParticles[i].y);
+                            ctx.lineTo(wParticles[j].x, wParticles[j].y);
+                            ctx.strokeStyle = `rgba(255, 107, 53, ${0.12 * (1 - dist / 80)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+            requestAnimationFrame(animateWelcomeParticles);
+        }
+        animateWelcomeParticles();
+    }
+
+    // === Role Typing Animation (faster cycling) ===
+    const roles = ['WEB DEVELOPER', 'MOBILE DEVELOPER', 'UI UX DESIGNER'];
+    let roleIndex = 0;
+    let charIdx = 0;
+    let isDel = false;
+    let roleTimer;
+
+    function typeRole() {
+        const currentRole = roles[roleIndex];
+        if (isDel) {
+            roleEl.textContent = currentRole.substring(0, charIdx - 1);
+            charIdx--;
+        } else {
+            roleEl.textContent = currentRole.substring(0, charIdx + 1);
+            charIdx++;
+        }
+
+        let speed = isDel ? 25 : 50;
+
+        if (!isDel && charIdx === currentRole.length) {
+            speed = 1200;
+            isDel = true;
+        } else if (isDel && charIdx === 0) {
+            isDel = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            speed = 200;
+        }
+
+        roleTimer = setTimeout(typeRole, speed);
+    }
+
+    // Start role typing after a short delay
+    setTimeout(() => {
+        if (roleEl) typeRole();
+    }, 400);
+
+    // === Terminal Animation (shortened) ===
+    const terminalMessages = [
+        'Initializing system...',
+        'Loading portfolio...',
+        'Rendering UI...',
+        'System ready! Welcome.'
+    ];
+
+    let msgIndex = 0;
+
+    function typeTerminalMessage(text, callback) {
+        if (!terminalMsg) return;
+        terminalMsg.textContent = '';
+        let i = 0;
+        const speed = text.length > 25 ? 18 : 30;
+        const interval = setInterval(() => {
+            if (i < text.length) {
+                terminalMsg.textContent += text[i];
+                i++;
+            } else {
+                clearInterval(interval);
+                if (callback) setTimeout(callback, 300);
+            }
+        }, speed);
+    }
+
+    function cycleTerminalMessages() {
+        if (msgIndex >= terminalMessages.length) return;
+        typeTerminalMessage(terminalMessages[msgIndex], () => {
+            // Add new terminal line for previous message
+            if (terminalBody && msgIndex > 0) {
+                const cursorLine = document.getElementById('terminalCursorLine');
+                const newLine = document.createElement('div');
+                newLine.className = 'terminal-line';
+                newLine.innerHTML = `<span class="terminal-prompt">></span> <span style="color:#4a4;">OK</span>`;
+                if (cursorLine) {
+                    terminalBody.insertBefore(newLine, cursorLine);
+                }
+            }
+            msgIndex++;
+            if (msgIndex < terminalMessages.length) {
+                cycleTerminalMessages();
+            }
+        });
+    }
+
+    setTimeout(() => cycleTerminalMessages(), 800);
+
+    // === Page Entrance Animation ===
+    const main = document.querySelector('main');
+    const navbar = document.querySelector('.navbar');
+    const particles = document.getElementById('particles');
+    const bgGlow = document.querySelector('.bg-glow');
+    const bgGrid = document.querySelector('.bg-grid');
+
+    function triggerPageEntrance() {
+        // Staggered fade-in for background elements
+        if (bgGrid) bgGrid.style.transition = 'opacity 0.8s ease';
+        if (bgGrid) bgGrid.style.opacity = '1';
+        if (bgGlow) bgGlow.style.transition = 'opacity 1s ease 0.2s';
+        if (bgGlow) bgGlow.style.opacity = '1';
+        if (particles) particles.style.transition = 'opacity 1s ease 0.3s';
+        if (particles) particles.style.opacity = '1';
+
+        // Navbar slide down
+        if (navbar) {
+            navbar.style.transition = 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s, opacity 0.6s ease 0.1s';
+            navbar.style.transform = 'translateY(0)';
+            navbar.style.opacity = '1';
+        }
+
+        // Main content zoom-in
+        if (main) {
+            main.style.transition = 'opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s';
+            main.style.opacity = '1';
+            main.style.transform = 'scale(1)';
+        }
+
+        // Footer fade in
+        const footer = document.querySelector('.footer');
+        if (footer) {
+            footer.style.transition = 'opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s';
+            footer.style.opacity = '1';
+            footer.style.transform = 'translateY(0)';
+        }
+    }
+
+    // === Hide Welcome Screen ===
+    const totalDuration = terminalMessages.length * 1000 + 800;
+    const exitDelay = Math.max(totalDuration, 2800);
+
+    setTimeout(() => {
+        overlay.classList.add('exiting');
+        // Trigger page entrance while welcome is exiting
+        setTimeout(() => triggerPageEntrance(), 300);
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+            document.body.classList.remove('loading');
+            if (roleTimer) clearTimeout(roleTimer);
+        }, 600);
+    }, exitDelay);
 }
 
 // ===== Custom Cursor =====
