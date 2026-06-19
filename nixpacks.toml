@@ -1,0 +1,18 @@
+# Railway Nixpacks config for Laravel
+[phases.setup]
+nixPkgs = ["php", "phpExtensions.pdo-sqlite", "phpExtensions.sqlite3"]
+
+[phases.install]
+cmds = [
+    "composer install --no-dev --optimize-autoloader"
+]
+
+[phases.build]
+cmds = [
+    "php artisan key:generate --force",
+    "php artisan optimize",
+    "php artisan storage:link 2>/dev/null || true"
+]
+
+[start]
+cmd = "php -S 0.0.0.0:${PORT:-8000} -t public"
