@@ -34,11 +34,11 @@
                     <span class="stat-label">Years Experience</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-value">6+</span>
+                    <span class="stat-value">55+</span>
                     <span class="stat-label">Projects Done</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-value">10+</span>
+                    <span class="stat-value">12+</span>
                     <span class="stat-label">Happy Clients</span>
                 </div>
             </div>
@@ -55,16 +55,19 @@
             </div>
 
             <div class="hero-social-links">
-                <a href="https://www.instagram.com/sdmsyh_" target="_blank" class="social-link-port">
+                <a href="https://www.instagram.com/sdmsyh_?igsh=MWt5MHk0cHVjNjRneQ==&utm_source=ig_contact_invite" target="_blank" class="social-link-port">
                     <i class='bx bxl-instagram'></i>
                 </a>
                 <a href="https://wa.me/6287885697679" target="_blank" class="social-link-port">
                     <i class='bx bxl-whatsapp'></i>
                 </a>
-                <a href="https://www.linkedin.com/in/sadam-alamsyah-349a51308" target="_blank" class="social-link-port">
+                <a href="https://www.linkedin.com/in/sadam-alamsyah-349a51308" target="_blank" class="social-link-port" aria-label="LinkedIn Sadam Alamsyah" title="LinkedIn Sadam Alamsyah">
                     <i class='bx bxl-linkedin'></i>
                 </a>
-                <a href="mailto:sadam.alamsyah04@gmail.com" class="social-link-port">
+                <a href="https://github.com/NCEN01" target="_blank" class="social-link-port">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="mailto:sadam.alamsyah04@gmail.com?subject=Halo%20Sadam&body=Halo%20Sadam%2C%20saya%20tertarik%20untuk%20berbicara%20lebih%20lanjut." class="social-link-port">
                     <i class='bx bxs-envelope'></i>
                 </a>
             </div>
@@ -1103,7 +1106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="company-location"><i class='bx bx-map'></i> Cilegon, Banten</p>
                 <div class="company-period">
                     <i class='bx bx-calendar'></i>
-                    <span>2 Bulan</span>
+                    <span>3 Bulan</span>
                 </div>
                 <div class="company-description">
                     <p>Perusahaan yang bergerak di bidang pengelolaan pelabuhan yang berlokasi di Cilegon, Banten. Bergerak di bidang sistem informasi dan teknologi untuk mendukung operasi pelabuhan.</p>
@@ -1170,39 +1173,185 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="project-number">02</div>
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class='bx bx-globe'></i>
+                            <i class='bx bx-news'></i>
                         </div>
                         <div class="project-title">
-                            <h4>Web Dashboard</h4>
-                            <span class="project-badge">Web Application</span>
+                            <h4>BAPPER (Berita Acara Serah Terima Perangkat &amp; Lisensi)</h4>
+                            <span class="project-badge">Internal Enterprise</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        Sistem dashboard web untuk monitoring aktivitas pelabuhan dan pelaporan data secara real-time. Dibangun untuk mendukung tim internal dalam pengambilan keputusan.
+                        Aplikasi digital untuk menggantikan sistem manual berbasis kertas dalam pencatatan Berita Acara Serah Terima Perangkat dan Lisensi. Mendukung pencatatan peminjaman dan pengembalian perangkat serta lisensi secara terstruktur untuk internal perusahaan PT Krakatau International Port.
                     </p>
                     <div class="project-features">
                         <div class="feature-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Dashboard Monitoring</span>
+                            <span>Manajemen Berita Acara</span>
                         </div>
                         <div class="feature-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Real-time Reporting</span>
+                            <span>Peminjaman &amp; Pengembalian</span>
                         </div>
                         <div class="feature-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Data Visualization</span>
+                            <span>Pencatatan Perangkat</span>
                         </div>
                         <div class="feature-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>User Management</span>
+                            <span>Manajemen Lisensi</span>
                         </div>
                     </div>
                     <div class="tech-stack">
                         <span class="tech-badge"><i class='bx bxl-html5'></i> HTML/CSS</span>
-                        <span class="tech-badge"><i class='bx bxl-javascript'></i> JavaScript</span>
-                        <span class="tech-badge"><i class='bx bxl-php'></i> PHP</span>
+                        <span class="tech-badge"><i class='bx bxl-php'></i> PHP (Laravel)</span>
+                        <span class="tech-badge"><i class='bx bxs-database'></i> MySQL</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- Pandu Board Platform Showcase: Mobile App & Web Admin -->
+            <div class="bapper-platforms">
+                <div class="platform-header">
+                    <h4><i class='bx bx-anchor'></i> Platform Pandu Board</h4>
+                    <span class="platform-subtitle">Tersedia dalam Mobile App & Web Admin</span>
+                </div>
+                <div class="platform-grid">
+
+                    <!-- Mobile App Pandu Board -->
+                    <div class="platform-card platform-mobile">
+                        <div class="platform-badge">Mobile App</div>
+                        <div class="platform-frame">
+                            <div class="platform-phone-mockup">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen" style="background: #fff; display: flex; align-items: center; justify-content: center;">
+                                    <img src="{{ asset('img/pandu-mobile.png') }}" alt="Pandu Board Mobile App" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="platform-info">
+                            <h5>Aplikasi Mobile Pandu</h5>
+                            <p>Aplikasi mobile untuk absensi karyawan dan pencatatan pekerjaan kapal Pandu di pelabuhan. Digunakan langsung oleh petugas di lapangan. Sudah dapat di-install di perangkat Android & iOS karena telah di-deploy sebagai <strong>Unlisted App</strong> untuk akses internal perusahaan.</p>
+                            <ul class="platform-features">
+                                <li><i class='bx bx-check'></i> Sistem Absensi Karyawan</li>
+                                <li><i class='bx bx-check'></i> Pencatatan Pekerjaan Kapal</li>
+                                <li><i class='bx bx-check'></i> Android & iOS Support</li>
+                            </ul>
+                            <div class="platform-tech">
+                                <span><i class='bx bxl-flutter'></i> Flutter</span>
+                                <span><i class='bx bxl-dart'></i> Dart</span>
+                                <span><i class='bx bxl-firebase'></i> Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Admin Pandu Board -->
+                    <div class="platform-card platform-web">
+                        <div class="platform-badge">Web Admin</div>
+                        <div class="platform-frame">
+                            <div class="platform-browser-mockup">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">pandu-board.kip.co.id</div>
+                                </div>
+                                <div class="browser-screen" style="height: 220px; align-items: center; justify-content: center;">
+                                    <img src="{{ asset('img/pandu-admin.png') }}" alt="Pandu Board Web Admin" style="width: 100%; height: 100%; object-fit: contain; background: #fff;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="platform-info">
+                            <h5>Web Admin Dashboard</h5>
+                            <p>Dashboard admin untuk monitoring aktivitas pelabuhan, pelaporan data, dan manajemen data kapal Pandu secara real-time.</p>
+                            <ul class="platform-features">
+                                <li><i class='bx bx-check'></i> Dashboard Monitoring Real-time</li>
+                                <li><i class='bx bx-check'></i> Manajemen Data Kapal</li>
+                                <li><i class='bx bx-check'></i> Laporan & Data Visualization</li>
+                            </ul>
+                            <div class="platform-tech">
+                                <span><i class='bx bxl-html5'></i> HTML/CSS</span>
+                                <span><i class='bx bxl-javascript'></i> JS</span>
+                                <span><i class='bx bxl-php'></i> PHP</span>
+                                <span><i class='bx bxs-data'></i> MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BAPPER Platform Showcase: Mobile App & Web App -->
+            <div class="bapper-platforms">
+                <div class="platform-header">
+                    <h4><i class='bx bx-layer'></i> Platform BAPPER</h4>
+                    <span class="platform-subtitle">Tersedia dalam Mobile App &amp; Web App</span>
+                </div>
+                <div class="platform-grid">
+
+                    <!-- Mobile App Platform -->
+                    <div class="platform-card platform-mobile">
+                        <div class="platform-badge">Mobile App</div>
+                        <div class="platform-frame">
+                            <div class="platform-phone-mockup">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen" style="background: #fff; display: flex; align-items: center; justify-content: center;">
+                                    <img src="{{ asset('img/mobile-bapper.png') }}" alt="BAPPER Mobile App" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="platform-info">
+                            <h5>Aplikasi Mobile</h5>
+                            <p>Akses cepat di lapangan untuk input Berita Acara, peminjaman perangkat, dan verifikasi lisensi langsung dari smartphone.</p>
+                            <ul class="platform-features">
+                                <li><i class='bx bx-check'></i> Input Berita Acara Mobile</li>
+                                <li><i class='bx bx-check'></i> Scan QR Perangkat</li>
+                                <li><i class='bx bx-check'></i> Notifikasi Real-time</li>
+                            </ul>
+                            <div class="platform-tech">
+                                <span><i class='bx bxl-flutter'></i> Flutter</span>
+                                <span><i class='bx bxl-dart'></i> Dart</span>
+                                <span><i class='bx bxl-firebase'></i> Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web App Platform -->
+                    <div class="platform-card platform-web">
+                        <div class="platform-badge">Web App</div>
+                        <div class="platform-frame">
+                            <div class="platform-browser-mockup">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">bapper.internal.kip.co.id</div>
+                                </div>
+                                <div class="browser-screen" style="height: 220px; align-items: center; justify-content: center;">
+                                    <img src="{{ asset('img/web-bapper.png') }}" alt="BAPPER Web App" style="width: 100%; height: 100%; object-fit: contain; background: #fff;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="platform-info">
+                            <h5>Aplikasi Web</h5>
+                            <p>Dashboard admin untuk monitoring seluruh data perangkat, lisensi, dan arsip Berita Acara Serah Terima perusahaan.</p>
+                            <ul class="platform-features">
+                                <li><i class='bx bx-check'></i> Dashboard Monitoring</li>
+                                <li><i class='bx bx-check'></i> Arsip Berita Acara Digital</li>
+                                <li><i class='bx bx-check'></i> Laporan &amp; Export PDF</li>
+                            </ul>
+                            <div class="platform-tech">
+                                <span><i class='bx bxl-html5'></i> HTML/CSS</span>
+                                <span><i class='bx bxl-javascript'></i> JS</span>
+                                <span><i class='bx bxl-php'></i> PHP</span>
+                                <span><i class='bx bxs-data'></i> MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -1216,7 +1365,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Photo 1 -->
                     <div class="doc-photo-card">
                         <div class="doc-photo-wrapper">
-                            <img src="{{ asset('img/intern-1.jpg') }}" alt="Dokumentasi 1" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 1%3C/text%3E%3C/svg%3E'">
+                            <img src="{{ asset('img/intern1.png') }}" alt="Dokumentasi 1" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 1%3C/text%3E%3C/svg%3E'">
                             <div class="doc-photo-overlay">
                                 <span class="doc-photo-label">Dokumentasi 1</span>
                             </div>
@@ -1225,7 +1374,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Photo 2 -->
                     <div class="doc-photo-card">
                         <div class="doc-photo-wrapper">
-                            <img src="{{ asset('img/intern-2.jpg') }}" alt="Dokumentasi 2" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 2%3C/text%3E%3C/svg%3E'">
+                            <img src="{{ asset('img/intern2.png') }}" alt="Dokumentasi 2" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 2%3C/text%3E%3C/svg%3E'">
                             <div class="doc-photo-overlay">
                                 <span class="doc-photo-label">Dokumentasi 2</span>
                             </div>
@@ -1234,7 +1383,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Photo 3 -->
                     <div class="doc-photo-card">
                         <div class="doc-photo-wrapper">
-                            <img src="{{ asset('img/intern-3.jpg') }}" alt="Dokumentasi 3" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 3%3C/text%3E%3C/svg%3E'">
+                            <img src="{{ asset('img/intern3.png') }}" alt="Dokumentasi 3" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 3%3C/text%3E%3C/svg%3E'">
                             <div class="doc-photo-overlay">
                                 <span class="doc-photo-label">Dokumentasi 3</span>
                             </div>
@@ -1243,7 +1392,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- Photo 4 -->
                     <div class="doc-photo-card">
                         <div class="doc-photo-wrapper">
-                            <img src="{{ asset('img/intern-4.jpg') }}" alt="Dokumentasi 4" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 4%3C/text%3E%3C/svg%3E'">
+                            <img src="{{ asset('img/intern4.png') }}" alt="Dokumentasi 4" class="doc-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23505060%22 font-family=%22sans-serif%22 font-size=%2214%22%3EFoto 4%3C/text%3E%3C/svg%3E'">
                             <div class="doc-photo-overlay">
                                 <span class="doc-photo-label">Dokumentasi 4</span>
                             </div>
@@ -1260,7 +1409,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class='bx bx-time'></i>
                     </div>
                     <div class="stat-content">
-                        <span class="stat-value">2</span>
+                        <span class="stat-value">3</span>
                         <span class="stat-label">Bulan</span>
                     </div>
                 </div>
@@ -1275,7 +1424,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class='bx bx-mobile-alt'></i>
+                        <i class='bx bx-layer'></i>
                     </div>
                     <div class="stat-content">
                         <span class="stat-value">2</span>
@@ -1636,10 +1785,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-info-modern">
                 <div class="project-header-modern">
                     <span class="project-tag-modern">Mobile App</span>
-                    <span class="project-year-modern">2024</span>
+                    <span class="project-year-modern">2023</span>
                 </div>
                 <h3 class="project-title-modern">Looka Food</h3>
-                <p class="project-desc-modern">Mobile App Design & Branding - Aplikasi pemesanan makanan dengan desain modern dan intuitif.</p>
+                <p class="project-desc-modern">Mobile App Design & Branding - Aplikasi pemesanan makanan dengan desain modern dan intuitif. Project with my team. </Project></p>
                 <div class="project-tech-modern">
                     <span>Figma</span>
                     <span>UI/UX</span>
@@ -1675,7 +1824,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-info-modern">
                 <div class="project-header-modern">
                     <span class="project-tag-modern">Mobile App</span>
-                    <span class="project-year-modern">2024</span>
+                    <span class="project-year-modern">2025</span>
                 </div>
                 <h3 class="project-title-modern">Baduy Nesia App</h3>
                 <p class="project-desc-modern">Mobile App Design - Aplikasi wisata budaya Baduy dengan fitur informasi dan pemetaan lokasi.</p>
@@ -1726,8 +1875,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
 
-        <!-- Project 4 - Shibuya Restaurant -->
-        <div class="project-card project-card-modern" data-category="web" data-type="web" data-index="3">
+        <!-- Project 4 - PT Bagas Operation Marine -->
+        <div class="project-card project-card-modern" data-category="web" data-type="web" data-index="3" onclick="window.open('https://bagasoprationmarine.com/', '_blank')" style="cursor: pointer;">
             <div class="project-card-bg"></div>
             <div class="project-card-glow"></div>
             <div class="project-card-border"></div>
@@ -1739,16 +1888,16 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="dot-modern dot-yellow"></span>
                             <span class="dot-modern dot-green"></span>
                         </div>
-                        <div class="browser-url-modern">shibuya-restaurant.com</div>
+                        <div class="browser-url-modern">bagasoprationmarine.com</div>
                     </div>
                     <div class="device-screen-modern">
-                        <img src="{{ asset('img/shibuya-web.png') }}" alt="Shibuya Restaurant Website" class="project-img">
+                        <img src="{{ asset('img/web-ptbagas.png') }}" alt="PT Bagas Operation Marine Website" class="project-img">
                     </div>
                     <div class="device-scan-line"></div>
                 </div>
                 <div class="project-overlay-modern">
                     <div class="overlay-content">
-                        <a href="#" class="project-link-modern">
+                        <a href="https://bagasoprationmarine.com/" target="_blank" class="project-link-modern">
                             <i class='bx bx-link-external'></i>
                         </a>
                     </div>
@@ -1756,15 +1905,15 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="project-info-modern">
                 <div class="project-header-modern">
-                    <span class="project-tag-modern">Web Design</span>
-                    <span class="project-year-modern">2024</span>
+                    <span class="project-tag-modern">Company Profile</span>
+                    <span class="project-year-modern">2026</span>
                 </div>
-                <h3 class="project-title-modern">Website Restoran Shibuya</h3>
-                <p class="project-desc-modern">Web Design & UI/UX - Website restoran Jepang dengan tampilan elegan dan menu interaktif.</p>
+                <h3 class="project-title-modern">Website PT Bagas Operation Marine</h3>
+                <p class="project-desc-modern">Website profesional Company Profile untuk PT Bagas Operation Marine — perusahaan yang bergerak di bidang marine operation & logistik. Sudah dapat diakses melalui <strong>bagasoprationmarine.com</strong>.</p>
                 <div class="project-tech-modern">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
+                    <span>Framework Laravel</span>
+                    <span>Dart</span>
+                    <span>PHP&JavaScript</span>
                 </div>
             </div>
             <div class="project-card-corner tl"></div>
@@ -1773,7 +1922,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-card-corner br"></div>
         </div>
 
-        <!-- Project 5 - HealthCheck-D -->
+        <!-- Project 5 - Skripsi: Sistem Manajemen Proyek Konstruksi EVM -->
         <div class="project-card project-card-modern" data-category="web" data-type="web" data-index="4">
             <div class="project-card-bg"></div>
             <div class="project-card-glow"></div>
@@ -1786,10 +1935,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="dot-modern dot-yellow"></span>
                             <span class="dot-modern dot-green"></span>
                         </div>
-                        <div class="browser-url-modern">healthcheck-d.com</div>
+                        <div class="browser-url-modern">sistem-evk-proyek.com</div>
                     </div>
                     <div class="device-screen-modern">
-                        <img src="{{ asset('img/diagnosa-web.png') }}" alt="HealthCheck-D Website" class="project-img">
+                        <img src="{{ asset('img/web-skripsi.png') }}" alt="Sistem Manajemen Proyek Konstruksi EVM" class="project-img">
                     </div>
                     <div class="device-scan-line"></div>
                 </div>
@@ -1804,14 +1953,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-info-modern">
                 <div class="project-header-modern">
                     <span class="project-tag-modern">Web Application</span>
-                    <span class="project-year-modern">2024</span>
+                    <span class="project-year-modern">2026</span>
                 </div>
-                <h3 class="project-title-modern">HealthCheck-D</h3>
-                <p class="project-desc-modern">Web Application, UI/UX - Sistem diagnosa kesehatan dengan antarmuka yang user-friendly.</p>
+                <h3 class="project-title-modern">Sistem Manajemen Proyek Konstruksi (EVM)</h3>
+                <p class="project-desc-modern">Web sistem manajemen informasi kelola proyek konstruksi dengan metode <strong>Earned Value Management (EVM)</strong> untuk perusahaan kontraktor. Mencatat laporan mingguan hasil kerja, menghasilkan <strong>Card EVM yang aktual dan digital</strong>, serta dilengkapi fitur <strong>Forecasting</strong> untuk memprediksi pembengkakan biaya dan waktu kinerja proyek.</p>
                 <div class="project-tech-modern">
                     <span>PHP</span>
+                    <span>Laravel</span>
                     <span>MySQL</span>
-                    <span>Bootstrap</span>
                 </div>
             </div>
             <div class="project-card-corner tl"></div>
@@ -1820,7 +1969,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="project-card-corner br"></div>
         </div>
 
-        <!-- Project 6 - Management Gudang -->
+        <!-- Project 6 - PT Kramat Berkah Jaya -->
         <div class="project-card project-card-modern" data-category="web" data-type="web" data-index="5">
             <div class="project-card-bg"></div>
             <div class="project-card-glow"></div>
@@ -1833,10 +1982,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="dot-modern dot-yellow"></span>
                             <span class="dot-modern dot-green"></span>
                         </div>
-                        <div class="browser-url-modern">management-gudang.com</div>
+                        <div class="browser-url-modern">ptkbj.co.id</div>
                     </div>
                     <div class="device-screen-modern">
-                        <img src="{{ asset('img/managementgudang-web.png') }}" alt="Management Gudang Website" class="project-img">
+                        <img src="{{ asset('img/web-ptkbj.png') }}" alt="PT Kramat Berkah Jaya Website" class="project-img">
                     </div>
                     <div class="device-scan-line"></div>
                 </div>
@@ -1850,15 +1999,15 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="project-info-modern">
                 <div class="project-header-modern">
-                    <span class="project-tag-modern">Web Application</span>
-                    <span class="project-year-modern">2024</span>
+                    <span class="project-tag-modern">Company Profile</span>
+                    <span class="project-year-modern">2026</span>
                 </div>
-                <h3 class="project-title-modern">Management Gudang</h3>
-                <p class="project-desc-modern">Web Application - Sistem manajemen gudang untuk mengelola stok barang masuk dan keluar.</p>
+                <h3 class="project-title-modern">Website PT Kramat Berkah Jaya (PTKBJ)</h3>
+                <p class="project-desc-modern">Website Company Profile untuk <strong>PT Kramat Berkah Jaya</strong> — perusahaan yang bergerak di bidang konstruksi barang dan jasa. Dibangun dengan tampilan profesional untuk memperkenalkan profil perusahaan, layanan, dan portofolio proyek.</p>
                 <div class="project-tech-modern">
-                    <span>Java</span>
-                    <span>MySQL</span>
-                    <span>NetBeans</span>
+                    <span>Frame Work NextJS</span>
+                    <span>TypeScript</span>
+                    <span>React&TailwindCSS</span>
                 </div>
             </div>
             <div class="project-card-corner tl"></div>
@@ -1915,7 +2064,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Let's work together on your next project</p>
             </div>
             <div class="contact-cards">
-                <a href="mailto:sadam.alamsyah04@gmail.com" class="contact-card">
+                <a href="mailto:sadam.alamsyah04@gmail.com?subject=Halo%20Sadam&body=Halo%20Sadam%2C%20saya%20tertarik%20untuk%20berbicara%20lebih%20lanjut." class="contact-card">
                     <div class="contact-icon">
                         <i class='bx bxs-envelope'></i>
                     </div>
@@ -1935,7 +2084,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="card-arrow"><i class='bx bx-right-arrow-alt'></i></div>
                 </a>
-                <a href="https://www.instagram.com/sdmsyh_" target="_blank" class="contact-card">
+                <a href="https://www.instagram.com/sdmsyh_?igsh=MWt5MHk0cHVjNjRneQ==&utm_source=ig_contact_invite" target="_blank" class="contact-card">
                     <div class="contact-icon instagram">
                         <i class='bx bxl-instagram-alt'></i>
                     </div>

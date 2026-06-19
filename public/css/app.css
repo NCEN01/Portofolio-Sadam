@@ -3606,9 +3606,19 @@ main {
 
 .doc-photos-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
     margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .doc-photos-grid.has-6 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .doc-photos-grid:not(.has-6) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .doc-photo-card {
@@ -4828,7 +4838,7 @@ main {
     }
 
     .desktop-frame-modern {
-        height: 160px;
+        height: 200px;
         border-radius: 10px;
     }
 
@@ -6740,7 +6750,7 @@ main {
 /* Desktop Frame Modern */
 .desktop-frame-modern {
     width: 100%;
-    height: 180px;
+    height: 230px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -6922,4 +6932,493 @@ main {
 .project-card-modern:hover .project-tech-modern span {
     background: rgba(255, 107, 53, 0.2);
     border-color: rgba(255, 107, 53, 0.4);
+}
+
+/* ===== BAPPER Platform Showcase ===== */
+.bapper-platforms {
+    margin-top: 0;
+}
+
+.platform-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.platform-header h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.platform-header h4 i {
+    color: var(--primary);
+}
+
+.platform-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    background: rgba(255, 107, 53, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+}
+
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 0;
+}
+
+.platform-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.platform-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(255, 107, 53, 0.15);
+    transform: translateY(-5px);
+}
+
+.platform-badge {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    padding: 0.6rem 1rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.platform-frame {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(255, 107, 53, 0.02) 0%, transparent 100%);
+}
+
+/* Phone Mockup */
+.platform-phone-mockup {
+    width: 140px;
+    height: 260px;
+    background: #111;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 14px;
+    background: #111;
+    border-radius: 0 0 10px 10px;
+    z-index: 5;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0f1a2e 0%, #0a0a1a 100%);
+    overflow: hidden;
+}
+
+.phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8px 6px;
+    background: rgba(255, 107, 53, 0.15);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.phone-title {
+    font-size: 0.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: var(--font-display);
+}
+
+.phone-dots {
+    color: var(--text-dim);
+    font-size: 0.6rem;
+}
+
+.phone-content {
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.phone-card {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.phone-card-icon {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 107, 53, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.phone-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-card-title {
+    font-size: 0.45rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.phone-card-sub {
+    font-size: 0.35rem;
+    color: var(--text-dim);
+}
+
+/* Browser Mockup */
+.platform-browser-mockup {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    background: #1a1a2e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: #2a2a3e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.browser-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.browser-dots .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.browser-dots .dot.red { background: #ff5f57; }
+.browser-dots .dot.yellow { background: #febc2e; }
+.browser-dots .dot.green { background: #28c840; }
+
+.browser-url {
+    flex: 1;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    font-size: 0.45rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    font-family: var(--font-body);
+    letter-spacing: 0.5px;
+}
+
+.browser-screen {
+    height: 180px;
+    display: flex;
+    overflow: hidden;
+}
+
+.web-sidebar {
+    width: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    gap: 8px;
+}
+
+.web-logo {
+    width: 22px;
+    height: 22px;
+    background: var(--primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: var(--font-display);
+}
+
+.web-menu-item {
+    width: 18px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.web-menu-item.active {
+    background: var(--primary);
+}
+
+.web-main {
+    flex: 1;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.web-stats-row {
+    display: flex;
+    gap: 3px;
+}
+
+.web-stat-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    border-radius: 3px;
+    padding: 3px;
+    text-align: center;
+}
+
+.web-stat-label {
+    display: block;
+    font-size: 0.3rem;
+    color: var(--text-dim);
+}
+
+.web-stat-value {
+    display: block;
+    font-size: 0.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    font-family: var(--font-display);
+}
+
+.web-chart {
+    display: flex;
+    gap: 3px;
+    height: 22px;
+    align-items: flex-end;
+}
+
+.web-chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--primary), rgba(255, 107, 53, 0.3));
+    border-radius: 2px 2px 0 0;
+    height: var(--h);
+}
+
+.web-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.web-list-item {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    flex: 1;
+}
+
+.platform-info {
+    padding: 1.25rem;
+}
+
+.platform-info h5 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.platform-info > p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.platform-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.platform-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.platform-features li i {
+    color: var(--primary);
+    font-size: 0.85rem;
+}
+
+.platform-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.platform-tech span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.7rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.platform-tech span i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+.platform-tech span:hover {
+    border-color: var(--primary);
+    background: rgba(255, 107, 53, 0.1);
+}
+
+/* ===== Platform Image Screenshot ===== */
+.platform-frame-image {
+    background: transparent;
+}
+
+.platform-screenshot {
+    max-width: 100%;
+    max-height: 280px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.platform-frame-image:hover .platform-screenshot {
+    transform: scale(1.03);
+}
+
+.platform-phone-mockup {
+    width: 140px;
+    height: 260px;
+}
+
+@media (max-width: 768px) {
+    .platform-screenshot {
+        max-height: 200px;
+    }
+
+    .platform-phone-mockup {
+        width: 110px;
+        height: 210px;
+    }
+}
+
+/* ===== Responsive: BAPPER Platform ===== */
+@media (max-width: 1200px) {
+    .platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-grid .platform-card:first-child {
+        order: 2;
+    }
+
+    .platform-grid .platform-card:last-child {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .platform-frame {
+        padding: 1rem;
+    }
+
+    .platform-phone-mockup {
+        width: 110px;
+        height: 210px;
+    }
+
+    .platform-info {
+        padding: 1rem;
+    }
+
+    .platform-info h5 {
+        font-size: 0.9rem;
+    }
+
+    .platform-info > p {
+        font-size: 0.75rem;
+    }
+
+    .platform-features li {
+        font-size: 0.75rem;
+    }
+
+    .platform-tech span {
+        font-size: 0.65rem;
+    }
 }
